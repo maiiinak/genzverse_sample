@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e8006f;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0066ff;
+  }
+}
+
+/* ─── TYPOGRAPHY CLASSES ─── */
+.font-akira {
+  font-family: 'Unbounded', 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-display {
+  font-family: 'Unbounded', 'Syne', sans-serif;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+}
+
+/* ─── BRUTALIST PINK, BLUE & MONOCHROME SHADOWS ─── */
+.brutal-shadow-pink {
+  box-shadow: 5px 5px 0px #e8006f;
+}
+
+.brutal-shadow-blue {
+  box-shadow: 5px 5px 0px #0066ff;
+}
+
+.brutal-shadow-white {
+  box-shadow: 5px 5px 0px #ffffff;
+}
+
+.brutal-shadow-black {
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.brutal-shadow-pink-lg {
+  box-shadow: 8px 8px 0px #e8006f;
+}
+
+.brutal-shadow-blue-lg {
+  box-shadow: 8px 8px 0px #0066ff;
+}
+
+/* ─── ZINE TAPE & PAPER TEXTURES ─── */
+.tape-strip {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  transform: rotate(-3deg);
+}
+
+.tape-pink {
+  background: rgba(232, 0, 111, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  transform: rotate(2deg);
+}
+
+.tape-blue {
+  background: rgba(0, 102, 255, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Clean Editorial Grid */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Star Shapes */
+.star-4pt {
+  width: 14px;
+  height: 14px;
+  background: #e8006f;
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+}
+
+.star-4pt-blue {
+  width: 14px;
+  height: 14px;
+  background: #0066ff;
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+}
+
+.star-4pt-white {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+}
+
+/* Magnetic Text Shake on Click */
+@keyframes magShake {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-5px) rotate(-1deg); }
+  30%  { transform: translateX(5px) rotate(1deg); }
+  45%  { transform: translateX(-4px) rotate(-0.5deg); }
+  60%  { transform: translateX(4px) rotate(0.5deg); }
+  75%  { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+.mag-shake {
+  animation: magShake 0.45s ease-in-out !important;
+}
+
+/* Mascot Animations */
+@keyframes mascotIdle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  40%       { transform: translateY(-5px) rotate(1deg); }
+  70%       { transform: translateY(-2px) rotate(-0.5deg); }
+}
+
+@keyframes mascotBounce {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.15, 0.88); }
+  50%  { transform: scale(0.92, 1.12) translateY(-8px); }
+  75%  { transform: scale(1.08, 0.94) translateY(-2px); }
+  100% { transform: scale(1); }
+}
+
+@keyframes mascotShake {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(-8deg); }
+  40%       { transform: rotate(8deg); }
+  60%       { transform: rotate(-5deg); }
+  80%       { transform: rotate(5deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Image Placeholder Style */
+.img-placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    #0d0d0d 0px,
+    #0d0d0d 10px,
+    #141414 10px,
+    #141414 20px
+  );
+  border: 2px dashed #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
